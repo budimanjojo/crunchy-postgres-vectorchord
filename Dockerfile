@@ -20,8 +20,16 @@ RUN PG_MAJOR=$(echo "$CDPG_TAG" | cut -d'-' -f2 | cut -d'.' -f1) && \
         "https://github.com/tensorchord/VectorChord/releases/download/${VECTORCHORD_TAG}/postgresql-${PG_MAJOR}-vchord_${VECTORCHORD_TAG}_${URLARCH}-gnu.zip" \
         -o /tmp/vchord.zip && \
     unzip /tmp/vchord.zip -d /tmp && \
-    cp -r /tmp/pkglibdir/. $(pg_config --pkglibdir) && \
-    cp -r /tmp/sharedir/. $(pg_config --sharedir) && \
-    rm -rf /tmp/vchord.zip /tmp/pkglibdir /tmp/sharedir
+    case "$VECTORCHORD_TAG" in \
+        "0.3.0") \
+            cp /tmp/vchord.so $(pg_config --pkglibdir) && \
+            cp /tmp/vchord.control $(pg_config --sharedir)/extension && \
+            cp /tmp/vchord-*.sql $(pg_config --sharedir)/extension && \
+            rm -rf /tmp/vchord*;; \
+        *) \
+            cp -r /tmp/pkglibdir/. $(pg_config --pkglibdir) && \
+            cp -r /tmp/sharedir/. $(pg_config --sharedir) && \
+            rm -rf /tmp/vchord.zip /tmp/pkglibdir /tmp/sharedir ;; \
+    esac
 
 USER 26
