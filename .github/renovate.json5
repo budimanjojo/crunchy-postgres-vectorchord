@@ -14,7 +14,7 @@
       "customType": "regex",
       "fileMatch": ["^versions.yaml$"],
       "matchStrings": [
-        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.*?\"?(?<currentValue>.*)\"?\\n"
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.*?- \"?(?<currentValue>.*)\"?\\n"
       ]
     }
   ],
