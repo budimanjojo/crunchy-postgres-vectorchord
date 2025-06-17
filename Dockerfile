@@ -21,7 +21,7 @@ RUN PG_MAJOR=$(echo "$CDPG_TAG" | cut -d'-' -f2 | cut -d'.' -f1) && \
         -o /tmp/vchord.zip && \
     unzip /tmp/vchord.zip -d /tmp && \
     case "$VECTORCHORD_TAG" in \
-        "0.3.0") \
+        "0.3.0"|"0.4.0"|"0.4.1") \
             cp /tmp/vchord.so $(pg_config --pkglibdir) && \
             cp /tmp/vchord.control $(pg_config --sharedir)/extension && \
             cp /tmp/vchord-*.sql $(pg_config --sharedir)/extension && \
