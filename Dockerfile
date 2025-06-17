@@ -3,8 +3,7 @@ ARG CDPG_TAG
 FROM registry.developers.crunchydata.com/crunchydata/crunchy-postgres:${CDPG_TAG}
 
 ARG TARGETARCH
-# renovate: datasource=github-releases depName=tensorchord/VectorChord
-ARG VECTORCHORD_TAG=0.4.2
+ARG VECTORCHORD_TAG
 ARG CDPG_TAG
 
 # drop to root to copy files
