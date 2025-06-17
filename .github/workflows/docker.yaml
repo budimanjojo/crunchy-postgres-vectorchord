@@ -73,7 +73,7 @@ jobs:
           script: |
             if (context.eventName == "pull_request") return false;
             if (context.eventName == "workflow_dispatch") return true;
-            return "${{ steps.changed-version.outputs.any_changed }}" == "true;"
+            return "${{ steps.changed-version.outputs.any_changed }}" == "true";
 
       - name: Set major postgres version
         id: version
