@@ -1,0 +1,9 @@
+---
+cdpg:
+  # renovate: datasource=docker depName=registry.developers.crunchydata.com/crunchydata/crunchy-postgres
+  - ubi9-17.5-2520
+  # renovate: datasource=docker depName=registry.developers.crunchydata.com/crunchydata/crunchy-postgres
+  - ubi9-16.9-2520
+vectorchord:
+  # renovate: datasource=github-relases depName=tensorchord/VectorChord
+  - 0.4.2

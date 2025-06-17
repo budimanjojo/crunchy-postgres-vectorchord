@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests"
+  ],
+  "username": "budimanjojo-bot[bot]",
+  "gitAuthor": "budimanjojo-bot <111944664+budimanjojo-bot[bot]@users.noreply.github.com>",
+  "repositories": ["budimanjojo/crunchy-postgres-vectorchord"],
+  "automerge": true,
+  "rebaseWhen": "conflicted",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^versions.yaml$"],
+      "matchStrings": [
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.*?\"?(?<currentValue>.*)\"?\\n"
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["registry.developers.crunchydata.com/crunchydata/crunchy-postgres"],
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["registry.developers.crunchydata.com/crunchydata/crunchy-postgres"],
+      "groupName": "postgresql",
+      "versioning": "regex:^(?<compatibility>ubi\\d+)-(?<major>\\d+).(?<minor>\\d+)-(?<patch>\\d+)"
+    }
+  ]
+}
