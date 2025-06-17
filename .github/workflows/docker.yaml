@@ -114,10 +114,10 @@ jobs:
     if: ${{ always() }}
     runs-on: ubuntu-latest
     name: Build results
-    needs: [build_and_push]
+    needs: [build-and-push]
     steps:
       - run: |
-          result="${{ needs.build_and_push.result }}"
+          result="${{ needs.build-and-push.result }}"
           if [[ $result == "success" || $result == "skipped" ]]; then
             exit 0
           else
