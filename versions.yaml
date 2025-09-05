@@ -6,4 +6,4 @@ cdpg:
   - ubi9-16.10-2534
 vectorchord:
   # renovate: datasource=github-releases depName=tensorchord/VectorChord
-  - 0.4.3
+  - 0.5.1
