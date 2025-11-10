@@ -14,7 +14,7 @@
       "defaultRegistryUrlTemplate": "https://www.crunchydata.com/developers/download-postgres/containers/postgresql17",
       "format": "html",
       "transformTemplates": [
-        "{ \"releases\": $map($distinct($match($$, /\\\"tag\\\":\\\"ubi9-[^\\\"]+)\\\"/g).group1), function($v) { {\"version\": $v} }) }"
+        "{ \"releases\": $map($distinct($match($$, /\\\"tag\\\":\\\"(ubi9-[^\\\"]+)\\\"/g).group1), function($v) { {\"version\": $v} }) }"
       ],
     }
   },
