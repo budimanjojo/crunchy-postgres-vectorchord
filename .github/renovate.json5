@@ -13,9 +13,9 @@
     "crunchydata-postgres": {
       "defaultRegistryUrlTemplate": "https://www.crunchydata.com/developers/download-postgres/containers/postgresql17",
       "format": "plain",
-      // "transformTemplates": [
-      //   "{ \"releases\": $map($map($, function($v) { $match($v.version, /\"tag\":\"(ubi[0-9-.]+)\"/).groups[0] }), function($v) {{ \"version\": $v }}) }"
-      // ],
+      "transformTemplates": [
+        "{ \"releases\": $map($map($, function($v) { $match($v.version, /\"tag\":\"(ubi[0-9-.]+)\"/).groups[0] }), function($v) {{ \"version\": $v }}) }"
+      ],
     }
   },
   "customManagers": [
