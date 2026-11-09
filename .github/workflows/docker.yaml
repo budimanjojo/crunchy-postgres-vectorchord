@@ -26,7 +26,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - name: Get dependency versions
-        uses: mikefarah/yq@f03c9dc599c37bfcaf533427211d05e51e6fee64 # v4.47.1
+        uses: mikefarah/yq@f2944b823f84906a127dbd29e4c2a3e60c4e550e # v4.54.3
         id: get-versions
         with:
           cmd: yq eval -o=json -I=0 versions.yaml
